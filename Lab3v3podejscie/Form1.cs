@@ -19,7 +19,7 @@ namespace Lab3v3podejscie
 
         private void button1_Click(object sender, EventArgs e)
         {
-         DaneWejsc.Text += "1";
+            DaneWejsc.Text += "1";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,15 +66,16 @@ namespace Lab3v3podejscie
         {
             DaneWejsc.Text += "0";
         }
+
         int pamiecKalkulatora = 0;
-      
+
 
         private void button11_Click_1(object sender, EventArgs e)
         {
             int wprowadzonaWartosc = int.Parse(DaneWejsc.Text);
             pamiecKalkulatora += wprowadzonaWartosc;
             DaneWyjsciowe.Text = pamiecKalkulatora.ToString();
-            DaneWejsc.Text = "";
+            DaneWejsc.Text = " ";
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -82,12 +83,36 @@ namespace Lab3v3podejscie
             int wprowadzonaWartosc = int.Parse(DaneWejsc.Text);
             pamiecKalkulatora -= wprowadzonaWartosc;
             DaneWyjsciowe.Text = pamiecKalkulatora.ToString();
-            DaneWejsc.Text = "";
+            DaneWejsc.Text = " ";
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
+            int wprowadzonaWartosc = int.Parse(DaneWejsc.Text);
+            if (pamiecKalkulatora == 0)
+                pamiecKalkulatora = 1;
+            pamiecKalkulatora = wprowadzonaWartosc * pamiecKalkulatora;
+            DaneWyjsciowe.Text = pamiecKalkulatora.ToString();
+            DaneWejsc.Text = " ";
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            if (pamiecKalkulatora == 0)
+            {
+                int wprowadzonaWartosc = int.Parse(DaneWejsc.Text);
+                pamiecKalkulatora = wprowadzonaWartosc;
+                DaneWejsc.Clear();
+            }
+            else
+            {
+                string wprwadzonaWartosc2 = DaneWejsc.Text;
+                int war3 = int.Parse(wprwadzonaWartosc2);
+                pamiecKalkulatora = pamiecKalkulatora / war3;
+                DaneWyjsciowe.Text = pamiecKalkulatora.ToString();
+                DaneWejsc.Text = " ";
+            }
         }
     }
 }
